@@ -1,6 +1,6 @@
 
 # build stage
-FROM node:lts-alpine as build-stage
+FROM arm32v6/node:lts-alpine as build-stage
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ COPY . .
 RUN yarn build
 
 # Multi arch build support
-FROM alpine as qemu
+FROM arm32v6/alpine as qemu
 
 ARG QEMU_VERSION="v4.2.0-7"
 
